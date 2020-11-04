@@ -1,0 +1,63 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+  }
+
+
+  body {
+    padding: 0;
+    margin: 0;
+   background: rgb(236, 134, 250);
+  }
+  
+  .calculator-grid { /*размер калькулятора*/
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 60vh;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: minmax(80px, auto) repeat(5, 70px);
+
+
+  }
+  
+  .calculator-grid > button {
+    cursor: pointer;          /*вид курсора*/
+    font-size: 2rem;          /*размер шрифта*/
+    border: 2px solid white;  /*рамка*/
+    outline: none;            /*без границ*/
+    background-color: rgba(153, 31, 223, 0.75);/*фон кнопок*/
+   
+  }
+  
+  .calculator-grid > button:hover {
+    background-color:rgb(255, 105, 223);/*подсветка кнопки при наведении миши*/
+  }
+  
+  .span-two {
+    grid-column: span 2;  /*алгоритм автоматического размещения*/
+  }
+  
+  .output {
+    grid-column: 1 / -1;  /* растянуть элемент на длину*/
+    background-color: rgba(108, 0, 250, 0.75);      /* фон  цифр*/
+    display: flex;
+    align-items: flex-end; /*выравнивает элементы внутри контейнера в перпендикулярном направлении*/
+    justify-content: space-around; /* браузер распределяет пространство между и вокруг элементов */
+    flex-direction: column;  /*главная ось располагается вертикально и направлена сверху вниз.*/
+    padding: 10px;          /*размер поля ввода*/
+    word-wrap: break-word;  /* Перенос цифр */ 
+    word-break: break-all;  /* Перенос цифр */ 
+  }
+  
+  .output .previous-operand {
+      color: rgba(255, 255, 255, .75);    /*результат (не конечный)*/
+    font-size: 1.5rem;       /*размер шрифта*/
+  }
+  
+  .output .current-operand {
+    color: white;         /*цвет цифр ввода*/
+    font-size: 2.5rem;      /*размер шрифта*/
+  }
